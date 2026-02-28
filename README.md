@@ -1,91 +1,113 @@
-MCP Demo for Maps
-📌 Project Overview
+# MCP Demo for Maps
 
-MCP Demo for Maps is a demonstration project that integrates the Model Context Protocol (MCP) with mapping functionality. This project showcases how to build and connect tools using MCP architecture for map-based operations.
+## 📌 Project Overview
 
-The goal of this demo is to:
+**MCP Demo for Maps** is a demonstration project that integrates the
+Model Context Protocol (MCP) with mapping functionality. This project
+showcases how to build and connect tools using MCP architecture for
+map-based operations.
 
-Demonstrate MCP server setup
+------------------------------------------------------------------------
 
-Implement tool integration
+## 🚀 Features
 
-Handle map-related queries
+-   MCP server implementation
+-   Custom tool integration
+-   Map-based data handling
+-   Structured request & response flow
+-   Error handling and logging
 
-Enable structured tool responses
+------------------------------------------------------------------------
 
-🚀 Features
+## 🏗️ Project Structure
 
-MCP server implementation
+    mcp_demo_for_maps/
+    │
+    ├── server.py              # Main MCP server
+    ├── tools/                 # Tool implementations
+    ├── config.py              # Configuration settings
+    ├── requirements.txt       # Python dependencies
+    ├── README.md              # Project documentation
+    └── ...
 
-Custom tool integration
+------------------------------------------------------------------------
 
-Map-based data handling
+## ⚙️ Installation
 
-Structured request & response flow
+### 1️⃣ Clone the Repository
 
-Error handling and logging
-
-🏗️ Project Structure
-mcp_demo_for_maps/
-│
-├── server.py              # Main MCP server
-├── tools/                 # Tool implementations
-├── config.py              # Configuration settings
-├── requirements.txt       # Python dependencies
-├── README.md              # Project documentation
-└── ...
-
-(Update structure if your folder layout is different.)
-
-⚙️ Installation
-1️⃣ Clone the Repository
+``` bash
 git clone <your-repository-url>
 cd mcp_demo_for_maps
-2️⃣ Create Virtual Environment
+```
+
+### 2️⃣ Create Virtual Environment
+
+``` bash
 python -m venv .venv
+```
 
 Activate it:
 
-Windows:
+**Windows:**
 
+``` bash
 .venv\Scripts\activate
+```
 
-Mac/Linux:
+**Mac/Linux:**
 
+``` bash
 source .venv/bin/activate
-3️⃣ Install Dependencies
+```
+
+### 3️⃣ Install Dependencies
+
+``` bash
 pip install -r requirements.txt
-▶️ Running the Project
+```
+
+------------------------------------------------------------------------
+
+## ▶️ Running the Project
 
 Start the MCP server:
 
+``` bash
 python server.py
+```
 
-If using uvicorn:
+Or using uvicorn:
 
+``` bash
 uvicorn server:app --reload
-🛠️ How It Works
+```
 
-Client sends a request.
+------------------------------------------------------------------------
 
-MCP server receives the request.
+## 🛠️ How It Works
 
-Server processes the query.
+1.  Client sends a request.
+2.  MCP server receives the request.
+3.  Server processes the query.
+4.  Relevant tool is triggered.
+5.  Structured response is returned.
 
-Relevant tool is triggered.
+------------------------------------------------------------------------
 
-Structured response is returned.
-
-🧪 Example Usage
+## 🧪 Example Usage
 
 Example request:
 
+``` json
 {
   "query": "Show map location for Pune"
 }
+```
 
 Example response:
 
+``` json
 {
   "status": "success",
   "data": {
@@ -93,35 +115,23 @@ Example response:
     "longitude": 73.8567
   }
 }
-🐞 Troubleshooting
-Import Errors
+```
 
-Make sure:
+------------------------------------------------------------------------
 
-Virtual environment is activated
+## 🔐 Environment Variables
 
-Dependencies are installed correctly
+Create a `.env` file:
 
-Tool Not Found Error
+    API_KEY=your_api_key
+    PORT=8000
 
-Verify tool is registered correctly
+------------------------------------------------------------------------
 
-Check naming consistency
-
-📦 Requirements
-
-Python 3.9+
-
-MCP compatible environment
-
-Required packages listed in requirements.txt
-
-🔐 Environment Variables (If Required)
-
-Create a .env file:
-
-API_KEY=your_api_key
-PORT=8000
-📄 License
+## 📄 License
 
 This project is for demonstration and educational purposes.
+
+## 🖼️ Output Image
+<img width="1402" height="591" alt="Screenshot (3)" src=<img width="1920" height="1080" alt="Screenshot (53)" src="https://github.com/user-attachments/assets/50371ac5-1ecd-491a-ab6c-356d03e337bd" />
+ />
