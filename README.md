@@ -1,98 +1,133 @@
-# Restaurant Finder MCP Server
+# MCP Demo for Maps
 
-A Model Context Protocol (MCP) server for finding nearby restaurants using OpenStreetMap data. This project provides both an MCP server and a Streamlit web interface for discovering restaurants.
+## 📌 Project Overview
 
-## Features
+**MCP Demo for Maps** is a demonstration project that integrates the
+Model Context Protocol (MCP) with mapping functionality. This project
+showcases how to build and connect tools using MCP architecture for
+map-based operations.
 
-### MCP Server
-- **Find restaurants by location** - Search restaurants using latitude and longitude coordinates
-- **Find restaurants by address** - Search restaurants by providing an address or city name
-- **Get restaurant details** - Retrieve detailed information about a specific restaurant
-- **Search by cuisine** - Search for restaurants by cuisine type or keyword
+------------------------------------------------------------------------
 
-### Streamlit Web App
-- **Find Nearby** - Search restaurants near a specific location
-- **Search by Cuisine** - Find restaurants of a specific cuisine type
-- **Recommendations** - Discover popular cuisines in your area
+## 🚀 Features
 
-## Installation
+-   MCP server implementation
+-   Custom tool integration
+-   Map-based data handling
+-   Structured request & response flow
+-   Error handling and logging
 
-1. Clone the repository:
-```
-bash
-git clone <repository-url>
+------------------------------------------------------------------------
+
+## 🏗️ Project Structure
+
+    mcp_demo_for_maps/
+    │
+    ├── server.py              # Main MCP server
+    ├── tools/                 # Tool implementations
+    ├── config.py              # Configuration settings
+    ├── requirements.txt       # Python dependencies
+    ├── README.md              # Project documentation
+    └── ...
+
+------------------------------------------------------------------------
+
+## ⚙️ Installation
+
+### 1️⃣ Clone the Repository
+
+``` bash
+git clone <your-repository-url>
 cd mcp_demo_for_maps
 ```
 
-2. Create a virtual environment (optional but recommended):
-```
-bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+### 2️⃣ Create Virtual Environment
+
+``` bash
+python -m venv .venv
 ```
 
-3. Install the dependencies:
+Activate it:
+
+**Windows:**
+
+``` bash
+.venv\Scripts\activate
 ```
-bash
+
+**Mac/Linux:**
+
+``` bash
+source .venv/bin/activate
+```
+
+### 3️⃣ Install Dependencies
+
+``` bash
 pip install -r requirements.txt
 ```
 
-## Usage
+------------------------------------------------------------------------
 
-### Running the Streamlit App
+## ▶️ Running the Project
 
-```
-bash
-streamlit run streamlit_app.py
-```
+Start the MCP server:
 
-The app will open in your browser at `http://localhost:8501`.
-
-### Running the MCP Server
-
-```
-bash
+``` bash
 python server.py
 ```
 
-The MCP server runs on stdio and can be integrated with Claude or other MCP-compatible clients.
+Or using uvicorn:
 
-## API Dependencies
-
-This project uses the following free OpenStreetMap-based APIs:
-
-- **Nominatim** (https://nominatim.openstreetmap.org) - For geocoding addresses to coordinates
-- **Overpass API** (https://overpass-api.de) - For finding restaurants and other POIs
-
-**Note:** Please use these APIs responsibly. They are free services maintained by volunteers. The application includes proper User-Agent headers for identification.
-
-## Project Structure
-
-```
-.
-├── server.py           # MCP Server implementation
-├── streamlit_app.py   # Streamlit web interface
-├── requirements.txt   # Python dependencies
-└── README.md          # This file
+``` bash
+uvicorn server:app --reload
 ```
 
-## Available Tools
+------------------------------------------------------------------------
 
-| Tool | Description |
-|------|-------------|
-| `find_restaurants_by_location` | Find nearby restaurants given latitude and longitude |
-| `find_restaurants_by_address` | Find restaurants given an address or city name |
-| `get_restaurant_details` | Get detailed information about a specific restaurant |
-| `search_restaurants_by_query` | Search restaurants by cuisine type or keyword |
+## 🛠️ How It Works
 
-## Tech Stack
+1.  Client sends a request.
+2.  MCP server receives the request.
+3.  Server processes the query.
+4.  Relevant tool is triggered.
+5.  Structured response is returned.
 
-- **Python** - Programming language
-- **Streamlit** - Web UI framework
-- **MCP** - Model Context Protocol for AI integration
-- **httpx** - HTTP client for API requests
-- **OpenStreetMap** - Map data source (Nominatim, Overpass API)
+------------------------------------------------------------------------
 
-## License
+## 🧪 Example Usage
 
-MIT License
+Example request:
+
+``` json
+{
+  "query": "Show map location for Pune"
+}
+```
+
+Example response:
+
+``` json
+{
+  "status": "success",
+  "data": {
+    "latitude": 18.5204,
+    "longitude": 73.8567
+  }
+}
+```
+
+------------------------------------------------------------------------
+
+## 🔐 Environment Variables
+
+Create a `.env` file:
+
+    API_KEY=your_api_key
+    PORT=8000
+
+------------------------------------------------------------------------
+
+## 📄 License
+
+This project is for demonstration and educational purposes.
